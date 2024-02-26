@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_list/screens/groceries.dart';
 
-final theme = ThemeData(
-  useMaterial3: true,
-  colorScheme: ColorScheme.fromSeed(
-    brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 83, 74, 136),
-  ),
-  textTheme: GoogleFonts.latoTextTheme(),
-);
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const App());
+  runApp(const MyApp());
 }
 
-class App extends StatelessWidget {
-  const App({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: theme,
+      title: 'Flutter Groceries',
+      theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 147, 229, 250),
+          brightness: Brightness.dark,
+          surface: const Color.fromARGB(255, 42, 51, 59),
+        ),
+        textTheme: GoogleFonts.latoTextTheme(),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 50, 58, 60),
+      ),
       home: const GroceriesScreen(),
     );
   }
